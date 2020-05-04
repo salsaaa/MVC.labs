@@ -1,0 +1,26 @@
+﻿@model Employee
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+ .input-validation-error
+{
+   border:1px solid red;
+}
+    </style>
+</head>
+<body>
+    <form method="post">
+        Name: @Html.TextBoxFor(m=>m.Name) @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        Salary: @Html.TextBoxFor(m=>m.Salary)@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger" })
+        Address: @Html.TextAreaFor(m=>m.Address)@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        <button type="submit">Register  </button>
+
+    </form>
+
+</body>
+</html>
+
