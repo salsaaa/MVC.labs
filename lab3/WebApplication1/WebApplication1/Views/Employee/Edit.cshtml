@@ -1,0 +1,34 @@
+﻿@model Employee
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    @section Styles{
+
+        <style>
+            .input-validation-error {
+                border: 1px solid red;
+            }
+        </style>
+    }
+
+</head>
+<body>
+    <form method="post">
+
+        <label for="Name">Name</label>
+        @Html.TextBoxFor(m => m.Name,new { @class = "form-control", @Value = ""})@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        <label for="Salary">Salary</label>
+        @Html.TextBoxFor(m=>m.Salary, new { @class = "form-control", @Value = "" })@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger" })
+        <label for="Address">Address</label>
+        @Html.TextAreaFor(m=>m.Address, new { @class = "form-control"})@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        <hr />
+        <input type="submit" value="Edit" class="btn btn-primary" />
+        @Html.ActionLink("Back to list","Index","Employee",null,new { @class="btn btn-dark"})
+
+    </form>
+
+</body>
+</html>
