@@ -1,0 +1,16 @@
+﻿@model Employee
+
+    <h1>Add Employee</h1>
+  
+     
+
+        <label for="Name">Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        <label for="Salary">Salary</label>
+        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger" })
+        <label for="Address">Address</label>
+        @Html.TextAreaFor(m => m.Address, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        <hr />
+       
+
+

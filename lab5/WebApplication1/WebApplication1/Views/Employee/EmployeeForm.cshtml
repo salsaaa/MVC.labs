@@ -1,0 +1,48 @@
+﻿@model Employee
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Action Employee</title>
+    @section Styles{
+
+        <style>
+            .input-validation-error {
+                border: 1px solid red;
+            }
+        </style>
+    }
+
+</head>
+<body>
+    <h1>@ViewBag.Action Employee</h1>
+   @using (Html.BeginForm()) //by2ra el action wel controller mn el route nfso which make it more general wel default method is post
+   {
+       if(ViewBag.Action=="Edit")
+       {
+       @Html.HiddenFor(m => m.Id)
+       }
+
+        <label for="Name">Name</label>
+        @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        <label for="Salary">Salary</label>
+        @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control" } })@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger" })
+        <label for="Address">Address</label>
+        @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })@Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        <hr />
+        <input type="submit" value=@ViewBag.Action class="btn btn-primary" />
+        @Html.ActionLink("Back to list", "Index", "Employee", null, new { @class = "btn btn-dark" })
+
+   }
+
+    
+    @section Scripts{
+    
+  
+    }
+</body>
+</html>
+
+
